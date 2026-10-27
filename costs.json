@@ -1,0 +1,15 @@
+{
+  "_comment": "HIPOTESIS PROVISIONALES: sustituye cada cifra por la tuya y justifica de donde sale en REPORT.md. Unidad de decision = una manzana. Positivo = manzana defectuosa.",
+  "base_rate": 0.05,
+  "cost_fp": 0.20,
+  "cost_fn": 5.00,
+  "cost_tp": 0.0,
+  "cost_tn": 0.0,
+  "cost_review": 0.025,
+  "human_error_rate": 0.02,
+  "apples_per_day": 100000,
+  "review_seconds": 5,
+  "shift_hours": 8,
+  "utilization": 0.8,
+  "max_reviewers": 2
+}

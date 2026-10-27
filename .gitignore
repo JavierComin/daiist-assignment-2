@@ -14,3 +14,7 @@ runs/
 
 # Never commit your API key
 .env
+
+datasets/
+
+runs/
