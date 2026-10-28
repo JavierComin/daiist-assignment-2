@@ -17,6 +17,7 @@ Ajustes por variables de entorno (los valores por defecto son los de la entrega)
 """
 import json
 import os
+import re
 import shutil
 import sys
 import time
@@ -95,9 +96,14 @@ def write_local_yaml(base):
     return path, names
 
 
+# El dataset trae variantes ya aumentadas de la misma foto (rotated_by_75_X, saltandpepper_X, ...).
+# Para detectar fugas entre splits hay que compararlas por su raiz X, no por el nombre exacto.
+AUG_PREFIX = re.compile(r"^(?:(?:rotated_by_\d+|saltandpepper|translation|vertical_flip|horizontal_flip|flip)_)+")
+
+
 def origin(filename):
-    """Imagen original: Roboflow anade '.rf.<hash>' al exportar."""
-    return filename.split(".rf.")[0]
+    """Foto de origen: sin el '.rf.<hash>' de Roboflow ni los prefijos de aumentacion."""
+    return AUG_PREFIX.sub("", filename.split(".rf.")[0])
 
 
 def read_labels(base, split, img_path):
@@ -139,7 +145,7 @@ def detection_metrics(model, data_yaml, tag):
     """AP50 y mAP50-95 globales y por clase en el split de test."""
     m = model.val(
         data=str(data_yaml), split="test", imgsz=IMGSZ, conf=0.001, iou=0.6,
-        plots=False, project=str(RUNS), name=f"val_{tag}", exist_ok=True, verbose=False,
+        plots=False, project=str(RUNS), name=f"val_{tag}", exist_ok=True, verbose=False, workers=WORKERS,
     )
     names = m.names
     per_class = []
@@ -160,7 +166,7 @@ def confusion_matrix(model, data_yaml):
     """Matriz de confusion de Ultralytics con conf=0.25 (la que se usa para dibujarla)."""
     m = model.val(
         data=str(data_yaml), split="test", imgsz=IMGSZ, conf=0.25, iou=0.6,
-        plots=True, project=str(RUNS), name="val_confusion", exist_ok=True, verbose=False,
+        plots=True, project=str(RUNS), name="val_confusion", exist_ok=True, verbose=False, workers=WORKERS,
     )
     RESULTS.mkdir(exist_ok=True)
     for fname in ("confusion_matrix.png", "confusion_matrix_normalized.png"):

@@ -18,3 +18,5 @@ runs/
 datasets/
 
 runs/
+
+/yolo*.pt

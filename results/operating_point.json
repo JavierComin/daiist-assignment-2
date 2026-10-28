@@ -1,23 +1,23 @@
 {
   "selection_set": "val (sin origenes compartidos con train)",
-  "selection_images": 512,
+  "selection_images": 422,
   "single_threshold": {
     "threshold": 0.06,
-    "cost_per_1000": 0.6702412868632708
+    "cost_per_1000": 0.88339222614841
   },
   "t_low": 0.06,
   "t_high": 0.06,
-  "cost_per_1000_selection": 0.6702412868632708,
+  "cost_per_1000_selection": 0.88339222614841,
   "evaluation": [
     {
       "set": "test completo",
       "images": 314,
       "defective_images": 241,
       "good_images": 73,
-      "cost_per_1000": 8.317512647075542,
+      "cost_per_1000": 7.0161427840618416,
       "interval90": [
-        2.602739726027399,
-        16.106974364804184
+        2.074688796680498,
+        12.872307167623486
       ],
       "staffing": {
         "review_share": 0.0,
@@ -27,10 +27,10 @@
       },
       "alternatives": {
         "no_hacer_nada": 250.0,
-        "persona_revisa_todo": 33.800000000000004,
-        "modelo_solo": 6.242823850395043,
+        "persona_revisa_todo": 43.85,
+        "modelo_solo": 4.941453987381345,
         "modelo_solo_umbral": 0.04,
-        "modelo_mas_revision": 8.317512647075542
+        "modelo_mas_revision": 7.0161427840618416
       },
       "rates": {
         "pos": {
@@ -47,13 +47,13 @@
     },
     {
       "set": "test sin origenes compartidos con train/val",
-      "images": 243,
-      "defective_images": 170,
+      "images": 196,
+      "defective_images": 123,
       "good_images": 73,
-      "cost_per_1000": 8.146655922643031,
+      "cost_per_1000": 7.9691502394476,
       "interval90": [
-        2.602739726027399,
-        15.95487510072522
+        1.9520547945205498,
+        14.147176745740063
       ],
       "staffing": {
         "review_share": 0.0,
@@ -63,15 +63,15 @@
       },
       "alternatives": {
         "no_hacer_nada": 250.0,
-        "persona_revisa_todo": 33.800000000000004,
-        "modelo_solo": 6.676067687348912,
+        "persona_revisa_todo": 43.85,
+        "modelo_solo": 5.936629914244348,
         "modelo_solo_umbral": 0.04,
-        "modelo_mas_revision": 8.146655922643031
+        "modelo_mas_revision": 7.9691502394476
       },
       "rates": {
         "pos": {
-          "pass": 0.011764705882352941,
-          "fail": 0.9882352941176471,
+          "pass": 0.016260162601626018,
+          "fail": 0.983739837398374,
           "review": 0.0
         },
         "neg": {
@@ -86,50 +86,50 @@
     {
       "cost_fn": 0.5,
       "umbral_solo": 0.06,
-      "coste_solo": 0.06702412868632708,
+      "coste_solo": 0.08833922261484099,
       "t_low": 0.06,
       "t_high": 0.06,
-      "coste_con_revision": 0.06702412868632708
+      "coste_con_revision": 0.08833922261484099
     },
     {
       "cost_fn": 1.25,
       "umbral_solo": 0.06,
-      "coste_solo": 0.1675603217158177,
+      "coste_solo": 0.2208480565371025,
       "t_low": 0.06,
       "t_high": 0.06,
-      "coste_con_revision": 0.1675603217158177
+      "coste_con_revision": 0.2208480565371025
     },
     {
       "cost_fn": 2.5,
       "umbral_solo": 0.06,
-      "coste_solo": 0.3351206434316354,
+      "coste_solo": 0.441696113074205,
       "t_low": 0.06,
       "t_high": 0.06,
-      "coste_con_revision": 0.3351206434316354
+      "coste_con_revision": 0.441696113074205
     },
     {
       "cost_fn": 5.0,
       "umbral_solo": 0.06,
-      "coste_solo": 0.6702412868632708,
+      "coste_solo": 0.88339222614841,
       "t_low": 0.06,
       "t_high": 0.06,
-      "coste_con_revision": 0.6702412868632708
+      "coste_con_revision": 0.88339222614841
     },
     {
       "cost_fn": 10.0,
       "umbral_solo": 0.06,
-      "coste_solo": 1.3404825737265416,
+      "coste_solo": 1.76678445229682,
       "t_low": 0.06,
       "t_high": 0.06,
-      "coste_con_revision": 1.3404825737265416
+      "coste_con_revision": 1.76678445229682
     },
     {
       "cost_fn": 20.0,
       "umbral_solo": 0.06,
-      "coste_solo": 2.680965147453083,
+      "coste_solo": 3.53356890459364,
       "t_low": 0.01,
       "t_high": 0.06,
-      "coste_con_revision": 1.8407834590236671
+      "coste_con_revision": 2.475952665429496
     }
   ]
 }

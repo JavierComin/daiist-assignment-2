@@ -11,13 +11,24 @@
     "device": "Tesla T4"
   },
   "costs": {
-    "_comment": "HIPOTESIS PROVISIONALES: sustituye cada cifra por la tuya y justifica de donde sale en REPORT.md. Unidad de decision = una manzana. Positivo = manzana defectuosa.",
+    "_comment": "Unidad de decision = una manzana. Positivo = manzana defectuosa. Cifras en euros.",
+    "_fuentes": {
+      "cost_fp": "Manzana Golden 72,62 EUR/100 kg (informe semanal de coyuntura, semana 20 de 2026) = 0,73 EUR/kg; con 200 g por manzana (SUPUESTO) son 0,145 EUR, redondeado a 0,15. Es el valor que se pierde al descartar una manzana buena.",
+      "cost_review": "INE, Encuesta Trimestral de Coste Laboral, 2T 2026: 26,18 EUR por hora efectiva (media nacional, todos los sectores). 5 s por manzana (SUPUESTO) = 26,18 / 3600 * 5 = 0,036 EUR.",
+      "cost_fn": "SUPUESTO sin fuente: reembolso de una bolsa de 1 kg (~2 EUR, precio al consumidor supuesto) + gestion de la reclamacion (~3 EUR). El analisis de sensibilidad muestra que el umbral elegido no cambia entre 0,5 y 10 EUR.",
+      "base_rate": "SUPUESTO sin fuente: 5 % de manzanas defectuosas llegan a la linea. El dataset tiene ~77 % defectuosas, por eso las tasas se ponderan con esta cifra.",
+      "human_error_rate": "SUPUESTO sin fuente: la persona se equivoca en el 2 % de las revisiones.",
+      "apples_per_day": "SUPUESTO: una linea de volumen medio. La plantilla necesaria escala linealmente con esta cifra.",
+      "review_seconds": "SUPUESTO: 5 s por manzana.",
+      "shift_hours_utilization": "Turno de 8 h con un 80 % de tiempo efectivo (SUPUESTO).",
+      "max_reviewers": "SUPUESTO: la planta dispone como maximo de 2 personas para revisar."
+    },
     "base_rate": 0.05,
-    "cost_fp": 0.2,
+    "cost_fp": 0.15,
     "cost_fn": 5.0,
     "cost_tp": 0.0,
     "cost_tn": 0.0,
-    "cost_review": 0.025,
+    "cost_review": 0.036,
     "human_error_rate": 0.02,
     "apples_per_day": 100000,
     "review_seconds": 5,
@@ -26,7 +37,7 @@
     "max_reviewers": 2
   },
   "overall": {
-    "precision": 0.7096321257944891,
+    "precision": 0.7096320776738352,
     "recall": 0.7950930580542852,
     "ap50": 0.7700088999496657,
     "map50_95": 0.5761298895301538
@@ -34,7 +45,7 @@
   "per_class": [
     {
       "class": "damaged_apple",
-      "precision": 0.38618501324702165,
+      "precision": 0.38618519822924685,
       "recall": 0.7352941176470589,
       "ap50": 0.6194001122283121,
       "map50_95": 0.3535783502792325,
@@ -42,7 +53,7 @@
     },
     {
       "class": "defect",
-      "precision": 0.5623240176380286,
+      "precision": 0.5623235000188536,
       "recall": 0.5663716814159292,
       "ap50": 0.5307172145133965,
       "map50_95": 0.2769251655181587,
@@ -50,7 +61,7 @@
     },
     {
       "class": "freshapples",
-      "precision": 0.9607177701489832,
+      "precision": 0.9607177617386865,
       "recall": 0.9863013698630136,
       "ap50": 0.9914146060954572,
       "map50_95": 0.863584703967151,
@@ -58,7 +69,7 @@
     },
     {
       "class": "rottenapple",
-      "precision": 0.9293017021439226,
+      "precision": 0.929301850708554,
       "recall": 0.8924050632911392,
       "ap50": 0.9385036669614971,
       "map50_95": 0.8104313383560727,
