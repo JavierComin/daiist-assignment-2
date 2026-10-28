@@ -1,0 +1,118 @@
+{
+  "settings": {
+    "model": "yolo11s.pt",
+    "imgsz": 416,
+    "epochs": 15,
+    "patience": 10,
+    "batch": 16,
+    "seed": 0,
+    "dataset": "kajal-tdslw/final-apple-data/8",
+    "train_seconds": 987,
+    "device": "Tesla T4"
+  },
+  "costs": {
+    "_comment": "HIPOTESIS PROVISIONALES: sustituye cada cifra por la tuya y justifica de donde sale en REPORT.md. Unidad de decision = una manzana. Positivo = manzana defectuosa.",
+    "base_rate": 0.05,
+    "cost_fp": 0.2,
+    "cost_fn": 5.0,
+    "cost_tp": 0.0,
+    "cost_tn": 0.0,
+    "cost_review": 0.025,
+    "human_error_rate": 0.02,
+    "apples_per_day": 100000,
+    "review_seconds": 5,
+    "shift_hours": 8,
+    "utilization": 0.8,
+    "max_reviewers": 2
+  },
+  "overall": {
+    "precision": 0.7096321257944891,
+    "recall": 0.7950930580542852,
+    "ap50": 0.7700088999496657,
+    "map50_95": 0.5761298895301538
+  },
+  "per_class": [
+    {
+      "class": "damaged_apple",
+      "precision": 0.38618501324702165,
+      "recall": 0.7352941176470589,
+      "ap50": 0.6194001122283121,
+      "map50_95": 0.3535783502792325,
+      "test_instances": 34
+    },
+    {
+      "class": "defect",
+      "precision": 0.5623240176380286,
+      "recall": 0.5663716814159292,
+      "ap50": 0.5307172145133965,
+      "map50_95": 0.2769251655181587,
+      "test_instances": 113
+    },
+    {
+      "class": "freshapples",
+      "precision": 0.9607177701489832,
+      "recall": 0.9863013698630136,
+      "ap50": 0.9914146060954572,
+      "map50_95": 0.863584703967151,
+      "test_instances": 73
+    },
+    {
+      "class": "rottenapple",
+      "precision": 0.9293017021439226,
+      "recall": 0.8924050632911392,
+      "ap50": 0.9385036669614971,
+      "map50_95": 0.8104313383560727,
+      "test_instances": 158
+    }
+  ],
+  "instances": {
+    "train": {
+      "damaged_apple": 1458,
+      "defect": 2100,
+      "freshapples": 1350,
+      "rottenapple": 3041
+    },
+    "val": {
+      "damaged_apple": 188,
+      "defect": 145,
+      "freshapples": 140,
+      "rottenapple": 283
+    },
+    "test": {
+      "damaged_apple": 34,
+      "defect": 113,
+      "freshapples": 73,
+      "rottenapple": 158
+    }
+  },
+  "baselines": {
+    "coco_zero_shot": {
+      "apple_recall_iou50": 0.41534391534391535,
+      "apple_precision_iou50": 0.6038461538461538,
+      "ground_truth_boxes": 378,
+      "defect_ap50": 0.0,
+      "note": "COCO no tiene clase 'defectuosa': su decision equivale a no rechazar nada."
+    },
+    "predict_nothing": {
+      "ap50": 0.0,
+      "decision": "no rechaza nada",
+      "cost_per_1000": 250.0
+    },
+    "majority_class": {
+      "class": "rottenapple",
+      "note": "la clase mas frecuente en train; como decision sobre imagenes, rechazar todo",
+      "image_level_accuracy_test": 0.767515923566879
+    }
+  },
+  "image_level": {
+    "positive": "imagen con al menos una manzana defectuosa",
+    "defect_classes": [
+      "damaged_apple",
+      "defect",
+      "rottenapple"
+    ],
+    "fresh_classes": [
+      "freshapples"
+    ]
+  }
+}

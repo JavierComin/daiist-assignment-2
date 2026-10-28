@@ -1,0 +1,47 @@
+{
+  "labels": [
+    "damaged_apple",
+    "defect",
+    "freshapples",
+    "rottenapple",
+    "background"
+  ],
+  "matrix": [
+    [
+      25.0,
+      0.0,
+      0.0,
+      3.0,
+      41.0
+    ],
+    [
+      0.0,
+      71.0,
+      0.0,
+      2.0,
+      46.0
+    ],
+    [
+      0.0,
+      0.0,
+      72.0,
+      1.0,
+      1.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      140.0,
+      11.0
+    ],
+    [
+      9.0,
+      41.0,
+      1.0,
+      12.0,
+      0.0
+    ]
+  ],
+  "note": "matrix[predicho][real]; el ultimo indice es 'background' (prediccion sin objeto = no detectado, o objeto inexistente = falsa deteccion). Mira tambien confusion_matrix.png."
+}
