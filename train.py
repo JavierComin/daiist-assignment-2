@@ -43,7 +43,7 @@ DEFECT_CLASSES = ["damaged_apple", "defect", "rottenapple"]       # positivo = d
 # --- Ajustes de entrenamiento ---
 MODEL = os.environ.get("MODEL", "yolo11s.pt")
 IMGSZ = int(os.environ.get("IMGSZ", 416))    # las manzanas ocupan ~50 % de la imagen: no hace falta 640
-EPOCHS = int(os.environ.get("EPOCHS", 30))
+EPOCHS = int(os.environ.get("EPOCHS", 15))   # 15 = las epocas de los pesos entregados (30 no cabia en el plazo)
 PATIENCE = int(os.environ.get("PATIENCE", 10))
 BATCH = int(os.environ.get("BATCH", 16))
 WORKERS = int(os.environ.get("WORKERS", 4))
